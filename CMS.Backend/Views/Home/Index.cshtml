@@ -1,8 +1,38 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model IEnumerable<CMS.Data.Entities.Post>
+
+@{
+    Layout = "_LayoutAdmin";
+    ViewData["Title"] = "Trang chủ";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container mt-5">
+    <h2 class="text-center mb-4 text-danger font-weight-bold text-uppercase">Tin tức mới nhất</h2>
+    <div class="row">
+        @if (Model != null && Model.Any())
+        {
+            foreach (var item in Model)
+            {
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow-sm h-100">
+                        <img src="@item.ImageUrl" class="card-img-top" alt="Thumbnail" style="height: 200px; object-fit: cover;">
+                        <div class="card-body">
+                            <span class="badge bg-primary mb-2">@item.Category.Name</span>
+                            <h5 class="card-title fw-bold text-dark">@item.Title</h5>
+                            <p class="card-text text-muted text-truncate">@item.Content</p>
+                            <a href="/Post/Details/@item.Id" class="btn btn-outline-danger btn-sm">Đọc tiếp</a>
+                        </div>
+                        <div class="card-footer text-muted small bg-transparent border-top-0">
+                            Ngày đăng: @item.CreatedDate.ToString("dd/MM/yyyy")
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="col-12 text-center my-5">
+                <p class="text-muted fs-5 italic">Hiện tại chưa nhận được dữ liệu bài viết từ hệ thống.</p>
+            </div>
+        }
+    </div>
 </div>

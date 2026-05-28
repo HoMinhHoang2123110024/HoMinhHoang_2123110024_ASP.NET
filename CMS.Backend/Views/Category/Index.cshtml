@@ -1,22 +1,54 @@
 ﻿@model IEnumerable<CMS.Data.Entities.Category>
 
-<h2 class="text-primary">DANH SÁCH DANH MỤC (DỮ LIỆU MẪU)</h2>
-<table class="table table-bordered">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Tên danh mục</th>
-            <th>Mô tả</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
+@{
+    Layout = "_LayoutAdmin";
+    ViewData["Title"] = "Quản lý danh mục";
+}
+
+<div class="container mt-4">
+    <h2 class="text-primary mb-3">DANH SÁCH DANH MỤC</h2>
+
+    <div class="mb-3 text-end">
+        <a asp-action="Create" class="btn btn-success">
+            <i class="bi bi-plus-circle"></i> Thêm danh mục mới
+        </a>
+    </div>
+
+    <table class="table table-bordered table-striped align-middle">
+        <thead class="table-dark">
             <tr>
-                <td>@item.Id</td>
-                <td>@item.Name</td>
-                <td>@item.Description</td>
+                <th style="width: 10%">ID</th>
+                <th style="width: 35%">Tên danh mục</th>
+                <th style="width: 40%">Mô tả</th>
+                <th style="width: 15%" class="text-center">Thao tác</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Any())
+            {
+                foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td class="fw-bold">@item.Name</td>
+                        <td>@item.Description</td>
+                        <td class="text-center">
+                            <a asp-action="Edit" asp-route-id="@item.Id"
+                               class="btn btn-sm btn-outline-warning me-1">Sửa</a>
+
+                            <a asp-action="Delete" asp-route-id="@item.Id"
+                               class="btn btn-sm btn-outline-danger"
+                               onclick="return confirm('Bạn có chắc chắn muốn xóa danh mục này?')">Xóa</a>
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="4" class="text-center text-muted">Chưa có danh mục nào trong hệ thống.</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

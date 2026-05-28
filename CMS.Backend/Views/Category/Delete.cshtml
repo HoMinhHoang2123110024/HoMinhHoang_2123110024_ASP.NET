@@ -1,0 +1,48 @@
+﻿@model CMS.Data.Entities.Category
+
+@{
+    Layout = "_LayoutAdmin";
+    ViewData["Title"] = "Xác nhận xóa danh mục";
+}
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card border-danger shadow">
+                <div class="card-header bg-danger text-white">
+                    <h4 class="mb-0">Xác Nhận Xóa Dữ Liệu</h4>
+                </div>
+                <div class="card-body">
+                    <p class="fs-5 text-center text-danger fw-bold">Bạn có chắc chắn muốn xóa danh mục này không?</p>
+                    <hr />
+
+                    <div class="px-3">
+                        <div class="row mb-2">
+                            <div class="col-sm-4 text-muted fw-bold">Mã số (Id):</div>
+                            <div class="col-sm-8">@Model.Id</div>
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col-sm-4 text-muted fw-bold">Tên danh mục:</div>
+                            <div class="col-sm-8 fw-bold">@Model.Name</div>
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col-sm-4 text-muted fw-bold">Mô tả:</div>
+                            <div class="col-sm-8 text-break">@(string.IsNullOrEmpty(Model.Description) ? "(Không có mô tả)" : Model.Description)</div>
+                        </div>
+                    </div>
+
+                    <hr />
+                    <form asp-action="Delete" method="post">
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" asp-for="Id" />
+
+                        <div class="d-flex justify-content-between px-2">
+                            <a asp-action="Index" class="btn btn-secondary">Hủy bỏ</a>
+                            <button type="submit" class="btn btn-danger">Đồng ý xóa</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

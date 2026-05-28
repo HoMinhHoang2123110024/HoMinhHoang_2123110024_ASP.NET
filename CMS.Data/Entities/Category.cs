@@ -18,7 +18,7 @@ namespace CMS.Data.Entities
     {
         public int Id { get; set; } // ma danh muc bai viet, khoa chinh
         public string Name { get; set; } // ten danh muc bai viet
-        public string Description { get; set; } = string.Empty; // mo ta danh muc bai viet
+        public string? Description { get; set; } = string.Empty; // mo ta danh muc bai viet
         public virtual ICollection<Post> Posts { get; set; }
     }
 }

@@ -1,5 +1,8 @@
 ﻿@model CMS.Data.Entities.Post
-
+@{
+    Layout = "_LayoutAdmin";
+	ViewData["Title"] = "Chi tiết bài viết";
+}
 <div class="container mt-5">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
@@ -19,6 +22,7 @@
             </div>
 
             <div class="post-content fs-5 leading-lg">
+                @Html.Raw(Model.Content)
                 @Model.Content
             </div>
 
