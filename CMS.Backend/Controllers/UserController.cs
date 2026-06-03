@@ -3,9 +3,11 @@ using CMS.Data.Entities;   // 2. Để sử dụng được thực thể User
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CMS.Backend.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class UserController : Controller
     {
         // 3. Khai báo biến ngữ cảnh Database (chỉ đọc) giống như bên Post

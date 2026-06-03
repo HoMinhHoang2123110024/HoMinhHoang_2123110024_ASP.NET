@@ -64,3 +64,10 @@
         </form>
     </div>
 </div>
+@section Scripts {
+    <script src="https://cdn.ckeditor.com/4.22.1/standard/ckeditor.js"></script>
+    <script>
+        // 2. Kích hoạt bộ soạn thảo thế chỗ cho ô Textarea có tên thuộc tính là 'Content'
+        CKEDITOR.replace('Content');
+    </script>
+}

@@ -18,7 +18,7 @@
                         <div class="card-body">
                             <span class="badge bg-primary mb-2">@item.Category.Name</span>
                             <h5 class="card-title fw-bold text-dark">@item.Title</h5>
-                            <p class="card-text text-muted text-truncate">@item.Content</p>
+                            <p>@System.Text.RegularExpressions.Regex.Replace(item.Content ?? "", "<.*?>", string.Empty)</p>
                             <a href="/Post/Details/@item.Id" class="btn btn-outline-danger btn-sm">Đọc tiếp</a>
                         </div>
                         <div class="card-footer text-muted small bg-transparent border-top-0">
