@@ -2,12 +2,6 @@
 using System.Linq;
 using CMS.Data;
 using CMS.Data.Entities;
-
-/*
- * Ho va ten: Tu Van Anh Truong
- * Mssv: 2123110486
- * Ngay tao: 22/05/2026
- */
 using CMS.Data;
 using CMS.Data.Entities;
 //using CMS.Models;
