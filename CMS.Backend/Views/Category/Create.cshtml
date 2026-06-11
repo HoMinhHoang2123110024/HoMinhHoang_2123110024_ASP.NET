@@ -2,6 +2,7 @@
 @{
     Layout = "_LayoutAdmin";
 }
+
 <div class="container mt-4">
     <h2 class="text-primary">THÊM DANH MỤC MỚI</h2>
     <hr />
@@ -19,11 +20,5 @@
 
         <button type="submit" class="btn btn-success">Lưu vào hệ thống</button>
         <a asp-action="Index" class="btn btn-secondary">Hủy bỏ</a>
-        <div asp-validation-summary="All" class="text-danger"></div>
     </form>
 </div>
-@section Scripts {
-    @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
-    }
-}

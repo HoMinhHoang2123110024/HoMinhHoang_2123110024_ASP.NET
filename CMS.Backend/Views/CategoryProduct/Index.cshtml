@@ -1,13 +1,14 @@
 ﻿@model IEnumerable<CMS.Data.Entities.CategoryProduct>
 
 @{
+    Layout = "_LayoutAdmin";
     ViewData["Title"] = "Danh mục sản phẩm";
 }
 
 <div class="container mt-4">
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h2 class="text-primary fw-bold text-uppercase">📦 Quản lý danh mục sản phẩm</h2>
-        <a href="/CategoryProduct/Create" class="btn btn-success shadow-sm">
+        <a href="/Create" class="btn btn-success shadow-sm">
             ➕ Thêm danh mục mới
         </a>
     </div>

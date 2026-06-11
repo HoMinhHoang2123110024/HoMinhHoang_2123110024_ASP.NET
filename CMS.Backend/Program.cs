@@ -38,6 +38,18 @@ builder.Services.AddCors(options => {
               .AllowAnyHeader();
     });
 });
+// ---- CẤU HÌNH CORS (THÊM VÀO TRƯỚC builder.Build()) ----
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowReactApp", policy =>
+    {
+        policy.WithOrigins("http://localhost:3003") // Cho phép ReactJS ở port 3000 gọi tới
+              .AllowAnyHeader()                     // Cho phép mọi loại Header (Content-Type, Authorization...)
+              .AllowAnyMethod()                     // Cho phép mọi phương thức HTTP (GET, POST, PUT, DELETE)
+              .AllowCredentials();                  // Hỗ trợ truyền Cookie/Session nếu cần sau này
+    });
+});
+
 var app = builder.Build();
 
 
@@ -54,7 +66,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-app.UseCors("AllowAll");
+app.UseCors("AllowReactApp");
 
 app.UseAuthentication();
 app.UseAuthorization();

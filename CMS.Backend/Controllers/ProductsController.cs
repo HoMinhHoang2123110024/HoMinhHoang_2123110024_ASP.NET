@@ -15,7 +15,8 @@ namespace CMS.Backend.Controllers
         {
             _context = context;
         }
-        [HttpGet]
+        [HttpGet]///
+      
         public IActionResult GetAll()
         {
             // Lấy dữ liệu từ bảng Products 
