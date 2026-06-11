@@ -2,6 +2,8 @@
 import CategoryProductList from './components/CategoryProductList';
 import ProductList from './components/ProductList'; // Nhớ thêm dòng import này
 import PostList from './components/PostList';
+import BlogCategoryList from './components/BlogCategoryList';
+
 import './App.css';
 
 function App() {
@@ -16,7 +18,9 @@ function App() {
       <div className="row">
         {/* Cột bên trái: Danh mục sản phẩm */}
         <div className="col-md-4">
-        <CategoryProductList />
+                  <CategoryProductList />
+                  <BlogCategoryList />
+
         </div>
         
         {/* Cột bên phải: Danh sách sản phẩm thời trang tự làm */}
@@ -29,8 +33,12 @@ function App() {
         <div className="col-12">
           <PostList />
         </div>
-      </div>
+          </div>
 
+
+          <footer className="pt-3 mt-5 text-muted border-top text-center small">
+              <p>© 2026 - Đồ án thực hành phân tầng ASP.NET Core Web API kết hợp ReactJS Client-side</p>
+          </footer>
     </div>
   );
 }
